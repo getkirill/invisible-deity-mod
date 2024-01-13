@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kraskaska.minecraft.mods.invisibledeitymod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "InvisibleDeityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

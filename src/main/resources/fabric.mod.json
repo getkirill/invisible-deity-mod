@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "invisible-deity-mod",
+  "version": "${version}",
+  "name": "Invisible Deity",
+  "description": "Censors kills done by invisible players",
+  "authors": [
+    "kraskaska"
+  ],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/invisible_deity_mod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.kraskaska.minecraft.mods.invisibledeitymod.InvisibleDeity"
+      }
+    ]
+  },
+  "mixins": [
+    "invisible-deity-mod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
