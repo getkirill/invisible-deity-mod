@@ -7,7 +7,7 @@
   "authors": [
     "kraskaska"
   ],
-  "contact": {},
+  "contact": {"sources":  "https://github.com/getkirill/invisible-deity-mod"},
   "license": "GPL-3.0",
   "icon": "assets/invisible_deity_mod/icon.png",
   "environment": "*",
