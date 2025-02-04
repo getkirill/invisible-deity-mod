@@ -13,7 +13,7 @@ import kotlin.io.path.readText
 import kotlin.io.path.writeText
 
 object InvisibleDeity : ModInitializer {
-    val DEFAULT_DAMAGE_TYPE = Identifier("invisible_deity_mod", "player_attack_invisible")
+    val DEFAULT_DAMAGE_TYPE = Identifier.of("invisible_deity_mod", "player_attack_invisible")
     val logger = LoggerFactory.getLogger(InvisibleDeity.javaClass)
     val config by lazy {
         val configFile = FabricLoader.getInstance().configDir.resolve("invisible-deity-damage-type.txt")
@@ -44,11 +44,11 @@ object InvisibleDeity : ModInitializer {
         }
         val damageType = configFile.readText().lines().firstOrNull {
             it.isNotBlank() && !it.trim().startsWith("#") && try {
-                Identifier(it.trim()); true
+                Identifier.of(it.trim()); true
             } catch (e: InvalidIdentifierException) {
                 false
             }
-        }?.let { Identifier(it.trim()) }
+        }?.let { Identifier.of(it.trim()) }
         if (damageType == null) {
             logger.error("Config damage type is invalid, defaulting to invisible_deity_mod:player_attack_invisible")
             return@lazy DEFAULT_DAMAGE_TYPE
@@ -58,7 +58,7 @@ object InvisibleDeity : ModInitializer {
     }
     val PLAYER_ATTACK_INVISIBLE_DAMAGE_TYPE: RegistryKey<DamageType> = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, config)
     val DEFAULT_DAMAGE_TYPE_KEY =
-        RegistryKey.of(RegistryKeys.DAMAGE_TYPE, (Identifier("invisible_deity_mod", "player_attack_invisible")))
+        RegistryKey.of(RegistryKeys.DAMAGE_TYPE, (Identifier.of("invisible_deity_mod", "player_attack_invisible")))
 
     override fun onInitialize() {
         logger.info("May the invisible deity be with you... erm")
